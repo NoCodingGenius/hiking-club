@@ -51,8 +51,8 @@ export default class App extends Component {
           name: fakeUser.name,
           email: fakeUser.email,
         });
-      })
-      .catch(console.error);
+      // })
+      // .catch(console.error);
   };
 
   openSignUpModal(userStatus) {
