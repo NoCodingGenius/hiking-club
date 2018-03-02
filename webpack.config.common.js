@@ -49,6 +49,14 @@ module: {
           'sass-loader',
         ],
       },
+      {
+        test:/\.(png|jpg)$/,
+        use: [
+          {
+            loader:'url-loader'
+          }
+        ]
+      }
     ],
   },
 output: {
