@@ -6,7 +6,7 @@ import config from '../../../api.config';
 
 const GOOGLE_API_SECRET = config.GOOGLE_API_SECRET
 
-class ReallyBadNameComponent extends Component {
+class GoogleMapMarkers extends Component {
 
   renderMarkers() {
     return this.props.coordinates.map(coordinate =>
@@ -35,7 +35,7 @@ const Map = compose(
   }),
   withScriptjs,
   withGoogleMap
-)(ReallyBadNameComponent)
+)(GoogleMapMarkers)
 
 class MyMapComponent extends Component {
   constructor(props){
