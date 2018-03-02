@@ -10,6 +10,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile/Profile';
 import Trails from './Components/Trails/trails';
 import JournalDetail from './Components/JournalDetail/JournalDetail';
+import SplashPage from './Components/SplashPage/SplashPage';
 
 export default class App extends Component {
   constructor(props) {
@@ -113,6 +114,7 @@ export default class App extends Component {
           />
 
             <Switch>
+              <Route exact path="/" component={SplashPage}/>
               <Route exact path="/journal" component={JournalDetail} />
               <Route exact path="/trails" render={(props) => (
                   <Trails trailName={this.state.trailName}/>)}/>
