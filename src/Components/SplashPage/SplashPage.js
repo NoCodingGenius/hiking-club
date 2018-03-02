@@ -4,6 +4,7 @@ const SplashPage = () => {
   return (
     <div>
       <h1>Take a hike, the good kind!</h1>
+      <img src='./images/trail_pictures/default-trail.png'/>
       <p>White sage wicca cleansing, empowering messages world soul tantra life coach. Nonviolent communication enneagram seventh generation soothing vibrations, earth radiant embodied. Tibetan singing bowl toxins tofurkey on the playa, barefoot running core strength. Reconnect jasmine hexayurt morphic resonance kelp feline acupuncture chi energy, higher cosmic force mystic mind altering tai chi. Fractal nature of peacock feather tie-dye nectar, microfestival talking stick karmic oneness.
 
         Homeopathy entheogen crystal healing innate capacity farm to table rolfing consciousness, enneagram nonlinear. Jasmine alkaline leave no trace, folk music cuddle party. Taurus sustainable tapping holographic resonance compostable toilet, Braggs emotional release radical acceptance juicy henna tattoo biodiesel. Dreamwork radiant daily kegel practice goddess, mind altering papasan. Co-op virgo fractal nature of, burning man colloidal silver.
