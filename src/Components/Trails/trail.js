@@ -2,10 +2,13 @@ import React from 'react';
 import './trails.scss';
 
 const Trail = function(props) {
-  console.log("What's up??????", props);
+
   return (
     <div>
-      <p>{props.trailName}</p>
+      <p>Trail Name: {props.trailName}</p>
+      <p>Distance: {props.trailDistance} miles</p>
+      <p>Duration: {props.trailDuration} hours</p>
+      <p>Elevation: {props.trailElevation}</p>
     </div>
   )
 }

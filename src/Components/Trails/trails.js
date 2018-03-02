@@ -39,6 +39,9 @@ export default class Trails extends Component {
       <Trail
         key={trail.id}
         trailName={trail.name}
+        trailDistance={trail.distance}
+        trailDuration={trail.duration}
+        trailElevation={trail.elevation}
       />
       )}
     </div>
