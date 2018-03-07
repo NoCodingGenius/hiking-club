@@ -1,5 +1,8 @@
+@import '../../index.scss'; 
+
 .navbar-container {
   display: flex;
   flex-direction: row;
+  font-family: $TitleFont;
   justify-content: space-between;
 }
