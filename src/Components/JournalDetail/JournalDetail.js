@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MyMapComponent from '../Map/Map';
+import './JournalDetail.scss';
 
 export default class JournalDetail extends Component {
   constructor(props){
