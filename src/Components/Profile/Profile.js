@@ -14,38 +14,39 @@ export default class Profile extends Component {
     this.state = {
       reviews: [],
       journals: [],
-      map: '',
+      map: null,
+      email: 'l%40l.com',
     };
   };
 
   // gets all of the reviews for a user.
   getReviews() {
     // dummy data until api is hooked up.
-    const fakeReviews = [
-      {id: 1, user_id: 4, rating: 4, comment: "great!"}
-    ];
-    // axios.get(`https://localhost:3000/users/${this.state.userId}/reviews`)
-    //   .then((reviews) => {
+    // const fakeReviews = [
+    //   {id: 1, user_id: 4, rating: 4, comment: "great!"}
+    // ];
+    axios.get(`http://localhost:3000/users/${this.state.email}/reviews`)
+      .then((reviews) => {
       this.setState({
-        reviews: fakeReviews,
+        reviews: reviews.data,
       });
-      // })
-      // .catch(console.error);
+      })
+      .catch(console.error);
   };
 
   // gets all of the journals for a user.
   getJournals() {
     // dummy data until api is hooked up.
-    const fakeJournals = [
-      {id: 1, trail_id: 1, user_id: 1, title: 'great trail!', entry: 'really nice.'}
-    ];
-    // axios.get(`https://localhost:3000/users/${this.state.userId}/reviews`)
-    //   .then((reviews) => {
+    // const fakeJournals = [
+    //   {id: 1, trail_id: 1, user_id: 1, title: 'great trail!', entry: 'really nice.'}
+    // ];
+    axios.get(`http://localhost:3000/users/${this.state.email}/journals`)
+      .then((journals) => {
       this.setState({
-        journals: fakeJournals,
+        journals: journals.data,
       });
-      // })
-      // .catch(console.error);
+      })
+      .catch(console.error);
   };
 
   getMap() {
@@ -78,7 +79,7 @@ export default class Profile extends Component {
 
     if (this.state.reviews.length > 0) {
       reviewList = (
-        <div className="journal">
+        <div className="review">
         {this.state.reviews.map((review, index) =>
           <Review
           key={review.id}
