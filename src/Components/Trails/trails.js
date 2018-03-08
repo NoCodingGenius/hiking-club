@@ -26,7 +26,7 @@ export default class Trails extends Component {
   componentDidMount() {
     this.getAllTrails();
   }
-  
+
   render() {
 
     let trailList = (
@@ -38,6 +38,7 @@ export default class Trails extends Component {
         trailDistance={trail.distance}
         trailDuration={trail.duration}
         trailElevation={trail.elevation}
+        trailImage={trail.trail_image}
       />
       )}
     </div>
