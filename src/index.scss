@@ -42,10 +42,16 @@ table {
 	border-spacing: 0;
 }
 
-$TitleFont: Antic-Slab-Regular;
+$TitleFont: Yellowtail-Regular;
+$BodyFont: Antic-Slab-Regular;
 
 $BackGround: #9d988d;
 $PostCardBorder: #119da4;
 $LogoBackGround: #666f5e;
-$BodyFont: #484855;
+$BodyFontColor: #484855;
 $FontOutline: #2f4046;
+
+body {
+  background-color: $BackGround;
+  font-family: $BodyFont;
+}

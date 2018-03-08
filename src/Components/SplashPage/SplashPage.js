@@ -1,9 +1,10 @@
 import React from 'react';
 import trailImg from '../../../public/images/trail_pictures/default-trail.png';
+import './SplashPage.scss';
 
 const SplashPage = () => {
   return (
-    <div>
+    <div className="splash-container">
       <h1>Take a hike, the good kind!</h1>
       <img src={trailImg}/>
       <p>White sage wicca cleansing, empowering messages world soul tantra life coach. Nonviolent communication enneagram seventh generation soothing vibrations, earth radiant embodied. Tibetan singing bowl toxins tofurkey on the playa, barefoot running core strength. Reconnect jasmine hexayurt morphic resonance kelp feline acupuncture chi energy, higher cosmic force mystic mind altering tai chi. Fractal nature of peacock feather tie-dye nectar, microfestival talking stick karmic oneness.</p>
