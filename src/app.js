@@ -11,9 +11,9 @@ import Profile from './Components/Profile/Profile';
 import Trails from './Components/Trails/trails';
 import JournalDetail from './Components/JournalDetail/JournalDetail';
 import SplashPage from './Components/SplashPage/SplashPage';
-import AnticSlabRegular from '../public/fonts/Antic-Slab-Regular/Antic-Slab-Regular.scss';
-import OrientaRegular from '../public/fonts/Orienta-Regular/Orienta-Regular.scss';
-import YellowtailRegular from '../public/fonts/Yellowtail-Regular/Yellowtail-Regular.scss';
+require('../public/fonts/Antic-Slab-Regular/Antic-Slab-Regular.scss');
+require('../public/fonts/Orienta-Regular/Orienta-Regular.scss');
+require('../public/fonts/Yellowtail-Regular/Yellowtail-Regular.scss');
 
 
 export default class App extends Component {
