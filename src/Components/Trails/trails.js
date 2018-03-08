@@ -14,23 +14,19 @@ export default class Trails extends Component {
     }
   }
   getAllTrails() {
-    const fakeTrails = [{
-      id: 1,
-      name: 'Coastal Trial: Lands End',
-      lat: 37.7807,
-      lng: -122.5117,
-      distance: 2.9,
-      duration: 1.5,
-      elevation: 192,
-      trail_image: 'https://californiathroughmylens.com/wp-content/uploads/2016/08/lands-end-1.jpg',
-    }];
-    this.setState({
-      trails: fakeTrails,
-    });
+    axios.get(`http://localhost:3000/trails/`)
+      .then((trails) => {
+        this.setState({
+        trails: trails.data,
+      });
+    })
+      .catch(console.error);
 }
-    componentDidMount() {
-      this.getAllTrails();
-    }
+
+  componentDidMount() {
+    this.getAllTrails();
+  }
+  
   render() {
 
     let trailList = (

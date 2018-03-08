@@ -61,12 +61,6 @@ class MyMapComponent extends Component {
   }
 
   render() {
-    // return (
-    //   <Map
-    //     isMarkerShown={this.state.isMarkerShown}
-    //     onMarkerClick={this.handleMarkerClick}
-    //   />
-    // )
     return (
       <Map
         isMarkerShown={true}
