@@ -45,14 +45,15 @@ class MyMapComponent extends Component {
     }
   }
 
-  componentDidMount() {
-    this.delayedShowMarker()
-  }
 
   delayedShowMarker () {
     setTimeout(() => {
       this.setState({ isMarkerShown: true})
     }, 3000)
+  }
+
+  componentDidMount() {
+    this.delayedShowMarker()
   }
 
   handleMarkerClick () {
