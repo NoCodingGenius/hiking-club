@@ -12,33 +12,8 @@ export default class Profile extends Component {
     super(props);
 
     this.state = {
-      reviews: [],
-      journals: [],
       map: null,
-      email: 'l%40l.com',
     };
-  };
-
-  // gets all of the reviews for a user.
-  getReviews() {
-    axios.get(`http://localhost:3000/users/${this.state.email}/reviews`)
-      .then((reviews) => {
-      this.setState({
-        reviews: reviews.data,
-      });
-      })
-      .catch(console.error);
-  };
-
-  // gets all of the journals for a user.
-  getJournals() {
-    axios.get(`http://localhost:3000/users/${this.state.email}/journals`)
-      .then((journals) => {
-      this.setState({
-        journals: journals.data,
-      });
-      })
-      .catch(console.error);
   };
 
   getMap() {
@@ -47,8 +22,8 @@ export default class Profile extends Component {
 
   getAllUserContent() {
     // this.getMap();
-    this.getReviews();
-    this.getJournals();
+    this.props.getReviews();
+    this.props.getJournals();
   }
 
   // loads reviews as soon as page loads.
@@ -69,10 +44,12 @@ export default class Profile extends Component {
 
     let reviewList = null;
 
-    if (this.state.reviews.length > 0) {
+    console.log('this.props', this.props)
+
+    if (this.props.reviews.length > 0) {
       reviewList = (
         <div className="review">
-        {this.state.reviews.map((review, index) =>
+        {this.props.reviews.map((review, index) =>
           <Review
           key={review.id}
           userId={review.user_id}
@@ -90,10 +67,10 @@ export default class Profile extends Component {
 
     let journalList = null;
 
-    if (this.state.journals.length > 0) {
+    if (this.props.journals.length > 0) {
       journalList = (
         <div className="journal">
-        {this.state.journals.map((journal, index) =>
+        {this.props.journals.map((journal, index) =>
           <JournalEntry
             key={journal.id}
             trailId={journal.trail_id}

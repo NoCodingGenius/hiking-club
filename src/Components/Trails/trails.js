@@ -8,7 +8,7 @@ import './trails.scss';
 export default class Trails extends Component {
   constructor(props){
     super(props)
-    this.state ={
+    this.state = {
       pins: [],
       trails: [],
     }
