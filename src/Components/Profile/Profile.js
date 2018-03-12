@@ -49,7 +49,7 @@ export default class Profile extends Component {
     if (this.props.reviews.length > 0) {
       reviewList = (
         <div className="review">
-        {this.props.reviews.map((review, index) =>
+        {this.props.reviews.map((review) =>
           <Review
           key={review.id}
           userId={review.user_id}

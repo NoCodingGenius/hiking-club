@@ -10,35 +10,25 @@ export default class Trails extends Component {
     super(props)
     this.state = {
       pins: [],
-      trails: [],
     }
   }
-  getAllTrails() {
-    axios.get(`http://localhost:3000/trails/`)
-      .then((trails) => {
-        this.setState({
-        trails: trails.data,
-      });
-    })
-      .catch(console.error);
-}
 
   componentDidMount() {
-    this.getAllTrails();
+    this.props.getAllTrails();
   }
 
   render() {
 
     let trailList = (
       <div>
-      {this.state.trails.map((trail) =>
+      {this.props.trails.map((trail) =>
       <Trail
         key={trail.id}
+        id={trail.id}
         trailName={trail.name}
         trailDistance={trail.distance}
         trailDuration={trail.duration}
         trailElevation={trail.elevation}
-        trailImage={trail.trail_image}
       />
       )}
     </div>

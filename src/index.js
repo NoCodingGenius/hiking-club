@@ -4,11 +4,13 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
 import { createLogger } from 'redux-logger';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import App from './app';
 import reducers from './reducers';
 
 const loggerMiddleware = createLogger();
+const browserHistory = createBrowserHistory({});
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, loggerMiddleware)(createStore);
 
@@ -16,12 +18,12 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )}>
-  <BrowserRouter>
+  <Router history={browserHistory}>
     <App />
-  </BrowserRouter>
+  </Router>
   </Provider>, document.getElementById('root'))
 
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }

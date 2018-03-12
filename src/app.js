@@ -9,8 +9,10 @@ import SignIn from './Components/Postcard/SignIn'
 import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile/Profile';
 import Trails from './Components/Trails/trails';
+import Trail from './Components/Trails/trail';
 import JournalDetail from './Components/JournalDetail/JournalDetail';
 import SplashPage from './Components/SplashPage/SplashPage';
+import TrailDetailPage from './Components/TrailDetailPage/TrailDetailPage';
 require('../public/fonts/Antic-Slab-Regular/Antic-Slab-Regular.scss');
 require('../public/fonts/Orienta-Regular/Orienta-Regular.scss');
 require('../public/fonts/Yellowtail-Regular/Yellowtail-Regular.scss');
@@ -26,16 +28,19 @@ export default class App extends Component {
     this.fakeSignUp = this.fakeSignUp.bind(this);
     this.getReviews = this.getReviews.bind(this);
     this.getJournals = this.getJournals.bind(this);
+    this.getAllTrails = this.getAllTrails.bind(this);
 
     this.state = {
       isLoggedIn: false,
       postCardShowing: false,
       hasAccount: false,
-      userId: '',
-      name: '',
+      userId: null,
+      name: null,
       email: 'l%40l.com',
       reviews: [],
       journals: [],
+      trails: [],
+      trailName: null,
     }
   };
 
@@ -113,6 +118,16 @@ export default class App extends Component {
       .catch(console.error);
   };
 
+  getAllTrails() {
+    axios.get(`http://localhost:3000/trails/`)
+      .then((trails) => {
+        this.setState({
+        trails: trails.data,
+      });
+    })
+      .catch(console.error);
+    }
+
   render() {
     let modal = null;
     if (!this.state.hasAccount) {
@@ -144,10 +159,11 @@ export default class App extends Component {
           />
 
             <Switch>
+              <Route path="/journal" component={JournalDetail} />
               <Route exact path="/" component={SplashPage}/>
-              <Route exact path="/journal" component={JournalDetail} />
               <Route exact path="/trails" render={(props) => (
-                  <Trails trailName={this.state.trailName}/>)}/>
+                  <Trails trails={this.state.trails}
+                  getAllTrails={this.getAllTrails}/>)}/>
 
               <Route exact path="/profile" render={(props) => (
                 <Profile
@@ -158,7 +174,11 @@ export default class App extends Component {
                   getReviews={this.getReviews}
                   getJournals={this.getJournals}
                 />)} />
-
+              <Route exact path="/traildetail/:id" render={(props) => (
+                <TrailDetailPage
+                  trails={this.state.trails}
+                />)}
+                />
             </Switch>
         </div>
       );
