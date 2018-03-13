@@ -19,8 +19,8 @@ export default class TrailDetail extends Component {
         <p>{this.props.trails[0].distance}</p>
         <p>{this.props.trails[0].duration}</p>
         <p>{this.props.trails[0].elevation}</p>
-        <p>{this.props.trails[0].lat}</p>
-        <p>{this.props.trails[0].lon}</p>
+        <p>{this.props.trails[0].latitude}</p>
+        <p>{this.props.trails[0].longitude}</p>
       </div>
     )
   }
