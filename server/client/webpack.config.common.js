@@ -6,12 +6,12 @@ module.exports = {
     app: './src/index.js',
   },
 plugins: [
-    new CleanWebpackPlugin(['app']),
-    new HtmlWebpackPlugin({
-      title: 'Hiking Club',
-      filename: 'index.html',
-      template: './public/index.html',
-    }),
+    // new CleanWebpackPlugin(['app']),
+    // new HtmlWebpackPlugin({
+    //   title: 'Hiking Club',
+    //   filename: 'index.html',
+    //   template: './public/index.html',
+    // }),
   ],
 module: {
     rules: [
@@ -59,8 +59,8 @@ module: {
       }
     ],
   },
-output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'app'),
+  output: {
+    filename: 'bundle.js',
+    path: path.join(__dirname, '/public'),
   },
 };
