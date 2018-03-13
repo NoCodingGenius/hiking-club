@@ -11,17 +11,16 @@ export default class TrailDetail extends Component {
   }
 
   render() {
-    console.log('this.props.match', this.props.match)
-    console.log('this.props', this.props)
+    console.log("PROPS!!!", this.props);
     return (
       <div>
-        <img src={this.props.trail_image}/>
-        <h1>{this.props.name}</h1>
-        <p>{this.props.distance}</p>
-        <p>{this.props.duration}</p>
-        <p>{this.props.elevation}</p>
-        <p>{this.props.lat}</p>
-        <p>{this.props.lon}</p>
+        <img src={this.props.trails[0].trail_image}/>
+        <h1>{this.props.trails[0].name}</h1>
+        <p>{this.props.trails[0].distance}</p>
+        <p>{this.props.trails[0].duration}</p>
+        <p>{this.props.trails[0].elevation}</p>
+        <p>{this.props.trails[0].latitude}</p>
+        <p>{this.props.trails[0].longitude}</p>
       </div>
     )
   }
