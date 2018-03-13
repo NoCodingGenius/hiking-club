@@ -7,6 +7,8 @@ module.exports = merge(common, {
   devServer: {
     hot: true,
     contentBase: path.resolve(__dirname, 'app'),
+    historyApiFallback: true,
+    publicPath: '/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
