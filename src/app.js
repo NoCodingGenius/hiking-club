@@ -183,13 +183,33 @@ export default class App extends Component {
                   getReviews={this.getReviews}
                   getJournals={this.getJournals}
                 />)} />
-              <Route exact path="/traildetail/:id" render={(props) => (
-                <TrailDetailPage
-                  trails={this.state.trails}
-                />)}
+              <Route exact path="/traildetail/:id" render={(props) => {
+                return (
+                  <TrailDetailPage
+                    trails={this.state.trails}
+                    {...props}
+                  />
+                  )
+                }
+              }
                 />
             </Switch>
         </div>
       );
   };
 };
+
+{/* app.get('/posts/:id', (req, res) => {
+  req.params.id
+})
+
+HeaderWrapper = (props) => {
+  const Header = (props2) =>  {
+    <div>Header </div>
+  }
+  console.log('initialized HeaderWrapper');
+  return Header(props)
+
+}
+
+<HeaderWrapper /> */}
