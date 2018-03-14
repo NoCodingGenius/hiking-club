@@ -29,6 +29,7 @@ export default class Trails extends Component {
         trailDistance={trail.distance}
         trailDuration={trail.duration}
         trailElevation={trail.elevation}
+        click={this.props.resetTrailId}
       />
       )}
     </div>

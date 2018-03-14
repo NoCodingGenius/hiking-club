@@ -40,7 +40,7 @@ export default class App extends Component {
       reviews: [],
       journals: [],
       trails: [],
-      trailName: null,
+      trailId: null,
     }
   };
 
@@ -128,6 +128,12 @@ export default class App extends Component {
       .catch(console.error);
     }
 
+  resetTrailId(id) {
+    this.setState({
+      trailId: id
+    })
+  }
+
   render() {
     let modal = null;
     if (!this.state.hasAccount) {
@@ -163,7 +169,10 @@ export default class App extends Component {
               <Route exact path="/" component={SplashPage}/>
               <Route exact path="/trails" render={(props) => (
                   <Trails trails={this.state.trails}
-                  getAllTrails={this.getAllTrails}/>)}/>
+                  getAllTrails={this.getAllTrails}
+                  resetTrailId={() => this.resetTrailId(this.state.trailId)}
+                />)}
+                />
 
               <Route exact path="/profile" render={(props) => (
                 <Profile

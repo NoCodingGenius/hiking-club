@@ -12,15 +12,16 @@ export default class TrailDetail extends Component {
 
   render() {
     console.log("PROPS!!!", this.props);
+    console.log("PARAMS!!!", this.props.id);
     return (
       <div>
-        <img src={this.props.trails[0].trail_image}/>
-        <h1>{this.props.trails[0].name}</h1>
-        <p>{this.props.trails[0].distance}</p>
-        <p>{this.props.trails[0].duration}</p>
-        <p>{this.props.trails[0].elevation}</p>
-        <p>{this.props.trails[0].latitude}</p>
-        <p>{this.props.trails[0].longitude}</p>
+        <img src={this.props.trails[].trail_image}/>
+        <h1>{this.props.trails[].name}</h1>
+        <p>{this.props.trails[].distance}</p>
+        <p>{this.props.trails[].duration}</p>
+        <p>{this.props.trails[].elevation}</p>
+        <p>{this.props.trails[].latitude}</p>
+        <p>{this.props.trails[].longitude}</p>
       </div>
     )
   }

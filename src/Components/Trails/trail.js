@@ -7,7 +7,7 @@ const Trail = function(props) {
 
   return (
     <div>
-      <Link to={`/traildetail/${props.id}`}><p>Trail Name: {props.trailName}</p></Link>
+      <Link to={`/traildetail/${props.id}`} params={{id: props.id}}><p>Trail Name: {props.trailName}</p></Link>
       <p>Distance: {props.trailDistance} miles</p>
       <p>Duration: {props.trailDuration} hours</p>
       <p>Elevation: {props.trailElevation}</p>
