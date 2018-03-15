@@ -29,18 +29,22 @@ export default class App extends Component {
     this.getReviews = this.getReviews.bind(this);
     this.getJournals = this.getJournals.bind(this);
     this.getAllTrails = this.getAllTrails.bind(this);
+    this.submitJournalEntry = this.submitJournalEntry.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
 
     this.state = {
       isLoggedIn: false,
       postCardShowing: false,
       hasAccount: false,
-      userId: null,
+      userId: 1,
       name: null,
       email: 'l%40l.com',
       reviews: [],
       journals: [],
       trails: [],
       trailId: null,
+      title: null,
+      entry: null,
     }
   };
 
@@ -94,7 +98,7 @@ export default class App extends Component {
       isLoggedIn: true,
       postCardShowing: false,
     })
-  }
+  };
 
   // gets all of the reviews for a user.
   getReviews() {
@@ -126,13 +130,37 @@ export default class App extends Component {
       });
     })
       .catch(console.error);
-    }
+    };
 
   resetTrailId(id) {
     this.setState({
       trailId: id
     })
-  }
+  };
+
+  submitJournalEntry(event){
+    event.preventDefault()
+    const title = this.state.title
+    const entry = this.state.entry
+    const trailId = this.state.trailId
+    const userId = this.state.userId
+    axios.post(`http://localhost:3000/users/${userId}/journals`, {
+      title,
+      entry,
+      trailId,
+      userId,
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch(console.error);
+  };
+
+  onInputChange(event){
+    this.setState({
+      [name]: event.target.value
+    })
+  };
 
   render() {
     let modal = null;
@@ -188,6 +216,10 @@ export default class App extends Component {
                   <TrailDetailPage
                     trails={this.state.trails}
                     {...props}
+                    submitJournalEntry={this.submitJournalEntry}
+                    onInputChange={this.onInputChange}
+                    title={this.state.title}
+                    entry={this.state.entry}
                   />
                   )
                 }
