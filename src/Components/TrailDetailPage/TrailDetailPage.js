@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './TrailDetailPage.scss';
 
 export default class TrailDetail extends Component {
@@ -6,16 +6,34 @@ export default class TrailDetail extends Component {
     super(props);
 
     this.state = {
-      createMode: false,
+      createJournal: false,
+      createReview: false,
     };
+
+    this.buttonClick = this.buttonClick.bind(this)
   }
 
+  buttonClick(event) {
+    console.log("event.target.className", event.target.className);
+    if (event.target.className === "journal-button") {
+      console.log("JOURNAL BUTTON WAS CLICKED!!!");
+      this.setState({
+        createJournal: true,
+      })
+    };
+
+    if (event.target.className === "review-button") {
+      console.log("REVIEW BUTTON WAS CLICKED!!!");
+      this.setState({
+        createReview: true,
+      })
+    }
+  };
+
   render() {
-    console.log("PROPS!!!", this.props);
-    console.log("PARAMS!!!", this.props.id);
-    console.log("MATCH.params.id:", this.props.match.params.id);
     return (
       <div>
+
         <img src={this.props.trails[this.props.match.params.id - 1].trail_image}/>
         <h1>{this.props.trails[this.props.match.params.id - 1].name}</h1>
         <p>{this.props.trails[this.props.match.params.id - 1].distance}</p>
@@ -23,6 +41,12 @@ export default class TrailDetail extends Component {
         <p>{this.props.trails[this.props.match.params.id - 1].elevation}</p>
         <p>{this.props.trails[this.props.match.params.id - 1].latitude}</p>
         <p>{this.props.trails[this.props.match.params.id - 1].longitude}</p>
+
+        <div>
+          <button className="journal-button" onClick={this.buttonClick}>Create Journal</button>
+          <button className="review-button" onClick={this.buttonClick}>Create Review</button>
+        </div>
+
       </div>
     )
   }
